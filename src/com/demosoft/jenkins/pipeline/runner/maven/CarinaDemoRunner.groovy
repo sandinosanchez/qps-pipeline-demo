@@ -14,11 +14,6 @@ class CarinaDemoRunner extends TestNG {
 		super(context, jobType)
 	}
 
-	@Override
-	public void onPush() {
-		prepare()
-	}
-
 	protected void prepare() {
         context.node("master") {
             scmClient.clone(false)
