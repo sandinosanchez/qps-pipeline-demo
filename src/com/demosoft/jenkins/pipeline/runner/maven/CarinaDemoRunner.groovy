@@ -14,6 +14,14 @@ class CarinaDemoRunner extends TestNG {
 		super(context, jobType)
 	}
 
+	@Override
+	public void onPush() {
+		pipelineLibrary = 'QPS-Pipeline-demo'
+		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDenmoRunner'
+		logger.info('CarinaDemoRunner')
+		super.onPush()
+	}
+
 	protected void prepare() {
         context.node("master") {
             scmClient.clone(false)
