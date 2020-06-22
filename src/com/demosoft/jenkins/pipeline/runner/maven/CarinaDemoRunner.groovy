@@ -1,6 +1,5 @@
 package com.demosoft.jenkins.pipeline.runner.maven
 
-@Library('QPS-Pipeline')
 import com.qaprosoft.jenkins.pipeline.runner.maven.TestNG
 
 class CarinaDemoRunner extends TestNG {
