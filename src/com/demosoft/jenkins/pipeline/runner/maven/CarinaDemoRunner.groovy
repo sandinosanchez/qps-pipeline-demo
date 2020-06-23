@@ -29,7 +29,7 @@ class CarinaDemoRunner extends TestNG {
 	protected void prepare() {
 		context.node("master") {
 			scmClient.clone(false)
-			scmClient.clone(context.env.getEnvironment().get("CARINA_DEMO_PIPELINE_GIT_URL"), context.env.getEnvironment().get("CARINA_DEMO_GIT_BRANCH"), "qps-demo-pipeline")
+			scmClient.clone(context.env.getEnvironment().get("CARINA_DEMO_PIPELINE_URL"), context.env.getEnvironment().get("CARINA_DEMO_PIPELINE_BRANCH"), "qps-demo-pipeline")
 			def additionalClasspath = "qps-pipeline/src" + "\n" + "qps-demo-pipeline/src"
 			context.println("additionalClasspath: " + additionalClasspath)
 			setDslClasspath(additionalClasspath)
