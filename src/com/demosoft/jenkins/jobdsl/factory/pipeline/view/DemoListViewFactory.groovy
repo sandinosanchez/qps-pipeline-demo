@@ -11,7 +11,7 @@ class DemoListViewFactory extends ListViewFactory {
 		def view = super.create()
 
 		view.with {
-			colums {
+			columns {
 				progressBar()
 				scmType()
 			}
