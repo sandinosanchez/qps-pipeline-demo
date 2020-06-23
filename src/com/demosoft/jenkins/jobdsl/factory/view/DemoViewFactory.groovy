@@ -1,7 +1,7 @@
-package com.demosoft.jenkins.jobdsl.factory.pipeline.view
+package com.demosoft.jenkins.jobdsl.factory.view
 
 import groovy.transform.InheritConstructors
-import com.qaprosoft.jenkins.jobdsl.factory.pipeline.CronJobFactory
+import com.qaprosoft.jenkins.jobdsl.factory.view.ListViewFactory
 
 @InheritConstructors
 class DemoListViewFactory extends ListViewFactory {
