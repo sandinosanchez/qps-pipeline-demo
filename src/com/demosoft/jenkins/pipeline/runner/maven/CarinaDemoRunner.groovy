@@ -10,8 +10,6 @@ class CarinaDemoRunner extends TestNG {
 
 	@Override
 	public void onPush() {
-		pipelineLibrary = 'QPS-Pipeline-demo'
-		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDenmoRunner'
 		logger.info('CarinaDemoRunner')
 		prepare()
 		super.onPush()
