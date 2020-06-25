@@ -6,7 +6,7 @@ import com.qaprosoft.jenkins.pipeline.runner.maven.TestNG
 @InheritConstructors
 class CarinaDemoRunner extends TestNG {
 
-	def overriddenFactories = ['com.qaprosoft.jenkins.jobdsl.factory.view.ListViewFactory' : 'com.demosoft.jenkins.jobdsl.factory.view.DemoListViewFactory']
+	def overriddenFactories = []
 
 	@Override
 	public void onPush() {
