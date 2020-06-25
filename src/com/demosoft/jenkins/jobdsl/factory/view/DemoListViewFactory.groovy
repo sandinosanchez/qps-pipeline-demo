@@ -33,7 +33,7 @@ class DemoListViewFactory extends DslFactory {
                 lastSuccess()
                 lastFailure()
                 lastDuration()
-                progrsBar()
+                progressBar()
                 scmType()
                 buildButton()
             }
