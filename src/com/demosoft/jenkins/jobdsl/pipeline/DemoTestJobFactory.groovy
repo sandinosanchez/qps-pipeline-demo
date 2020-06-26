@@ -10,6 +10,7 @@ class DemoTestJobFactory extends TestJobFactory {
 	@Override
 	def create() {
 		def pipelineJob = super.create()
+		logger.info('DemoTestJobFactory')
 
 		pipelineJob.with {
 			parameters {
