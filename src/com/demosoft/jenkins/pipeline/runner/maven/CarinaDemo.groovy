@@ -1,30 +1,30 @@
 package com.demosoft.jenkins.pipeline.runner.maven
 
 import groovy.transform.InheritConstructors
+import com.qaprosoft.jenkins.pipeline.Configuration
 import com.qaprosoft.jenkins.pipeline.runner.maven.TestNG
 
 @InheritConstructors
-class CarinaDemoRunner extends TestNG {
+class CarinaDemo extends TestNG {
 
-	def overriddenFactories = []
+	def overriddenFactories = ['com.qaprosoft.jenkins.jobdsl.pipeline.TestJobFactory' : 'com.demosoft.jenkins.jobdsl.pipeline.DemoTestJobFactory']
 
 	@Override
 	public void onPush() {
 		pipelineLibrary = 'QPS-Pipeline-demo'
-		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemoRunner'
-		logger.info('CarinaDemoRunner')
+		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemo'
 		prepare()
 		super.onPush()
 	}
 
-	//@Override
-	//public void registerObject(name, object) {
-	//	if (overriddenFactories.containsKey(object.clazz)) {
-	//		context.println("overriding ${object.clazz} by ${overriddenFactories.get(object.clazz)}")
-	//		object.setClass(overriddenFactories.get(object.clazz))
-	//	}
-	//	super.registerObject(name, object)
-	//}
+	@Override
+	public void registerObject(name, object) {
+		if (overriddenFactories.containsKey(object.clazz)) {
+			context.println("overriding ${object.clazz} by ${overriddenFactories.get(object.clazz)}")
+			object.setClass(overriddenFactories.get(object.clazz))
+		}
+		super.registerObject(name, object)
+	}
 
 	protected void prepare() {
 		context.node("master") {
@@ -35,5 +35,4 @@ class CarinaDemoRunner extends TestNG {
 			setDslClasspath(additionalClasspath)
 		}
 	}
-
 }
