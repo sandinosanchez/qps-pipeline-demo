@@ -10,16 +10,27 @@ class CarinaDemo extends TestNG {
 	def overriddenFactories = ['com.qaprosoft.jenkins.jobdsl.factory.pipeline.TestJobFactory' : 'com.demosoft.jenkins.jobdsl.factory.pipeline.DemoTestJobFactory']
 
 	@Override
-	public void onPush() {
+	protected void onPush() {
 		pipelineLibrary = 'QPS-Pipeline-demo'
 		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemo'
-		prepare()
-		enableDebug(Configuration.get('debug')?.toBoolean())
 		super.onPush()
 	}
 
 	@Override
-	public void registerObject(name, object) {
+	protected void build() {
+		setLogLevel(Configuration.get('debug')?.toBoolean()))
+		super.build()
+		clean()
+	}
+
+	@Override
+	protected clean() {
+		super.clean()
+		setLogLevel(false)
+	}
+
+	@Override
+	protected void registerObject(name, object) {
 		if (overriddenFactories.containsKey(object.clazz)) {
 			context.println("overriding ${object.clazz} by ${overriddenFactories.get(object.clazz)}")
 			object.setClass(overriddenFactories.get(object.clazz))
@@ -37,7 +48,7 @@ class CarinaDemo extends TestNG {
 		}
 	}
 
-	protected void enableDebug(isDebugEnabled) {
+	protected void setLogLevel(isDebugEnabled) {
 		context.env.QPS_PIPELINE_LOG_LEVEL = isDebugEnabled ? "DEBUG" : "INFO"
 	}
 }
