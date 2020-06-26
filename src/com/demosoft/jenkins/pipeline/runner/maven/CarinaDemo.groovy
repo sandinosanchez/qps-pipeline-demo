@@ -18,13 +18,6 @@ class CarinaDemo extends TestNG {
 	}
 
 	@Override
-	public void build() {
-		setLogLevel(Configuration.get('debug')?.toBoolean())
-		super.build()
-		setLogLevel(false)
-	}
-
-	@Override
 	protected void registerObject(name, object) {
 		if (overriddenFactories.containsKey(object.clazz)) {
 			context.println("overriding ${object.clazz} by ${overriddenFactories.get(object.clazz)}")
@@ -41,9 +34,5 @@ class CarinaDemo extends TestNG {
 			context.println("additionalClasspath: " + additionalClasspath)
 			setDslClasspath(additionalClasspath)
 		}
-	}
-
-	protected void setLogLevel(isDebugEnabled) {
-		context.env.QPS_PIPELINE_LOG_LEVEL = isDebugEnabled ? "DEBUG" : "INFO"
 	}
 }
