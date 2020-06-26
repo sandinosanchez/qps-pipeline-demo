@@ -14,7 +14,7 @@ class DemoTestJobFactory extends TestJobFactory {
 
 		pipelineJob.with {
 			parameters {
-				booleanParam('debug', false, 'enable or disable debug log level')
+				booleanParam('debug', false, 'enable debug log level')
 			}
 		}
 	}

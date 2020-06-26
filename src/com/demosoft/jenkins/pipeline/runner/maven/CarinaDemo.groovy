@@ -14,6 +14,7 @@ class CarinaDemo extends TestNG {
 		pipelineLibrary = 'QPS-Pipeline-demo'
 		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemo'
 		prepare()
+		enableDebug(Configuration.get('debug')?.toBoolean())
 		super.onPush()
 	}
 
@@ -34,5 +35,9 @@ class CarinaDemo extends TestNG {
 			context.println("additionalClasspath: " + additionalClasspath)
 			setDslClasspath(additionalClasspath)
 		}
+	}
+
+	protected void enableDebug(isDebugEnabled) {
+		context.env.QPS_PIPELINE_LOG_LEVEL = isDebugEnabled ? "DEBUG" : "INFO"
 	}
 }
