@@ -1,7 +1,7 @@
 package com.demosoft.jenkins.jobdsl.factory.pipeline
 
 import groovy.transform.InheritConstructors
-import com.qaprosoft.jenkins.jobdsl.pipeline.TestJobFactory
+import com.qaprosoft.jenkins.jobdsl.factory.pipeline.TestJobFactory
 
 
 @InheritConstructors
