@@ -13,6 +13,7 @@ class CarinaDemo extends TestNG {
 	public void onPush() {
 		pipelineLibrary = 'QPS-Pipeline-demo'
 		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemo'
+		prepare()
 		super.onPush()
 	}
 
