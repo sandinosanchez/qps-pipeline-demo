@@ -18,7 +18,7 @@ class CarinaDemo extends TestNG {
 
 	@Override
 	protected void build() {
-		setLogLevel(Configuration.get('debug')?.toBoolean()))
+		setLogLevel(Configuration.get('debug')?.toBoolean())
 		super.build()
 		clean()
 	}
