@@ -1,7 +1,6 @@
 package com.demosoft.jenkins.pipeline.runner.maven
 
 import groovy.transform.InheritConstructors
-import com.qaprosoft.jenkins.pipeline.Configuration
 import com.qaprosoft.jenkins.pipeline.runner.maven.TestNG
 
 @InheritConstructors
@@ -29,7 +28,7 @@ class CarinaDemo extends TestNG {
 	protected void prepare() {
 		context.node("master") {
 			scmClient.clone(false)
-            scmClient.clone(context.env.getEnvironment().get("CARINA_DEMO_PIPELINE_URL"), context.env.getEnvironment().get("CARINA_DEMO_PIPELINE_BRANCH"), "qps-demo-pipeline")
+            scmClient.clone(configuration.getGlobalProperty("CARINA_DEMO_PIPELINE_URL"), configuration.getGlobalProperty("CARINA_DEMO_PIPELINE_BRANCH"), "qps-demo-pipeline")
 			def additionalClasspath = "qps-pipeline/src" + "\n" + "qps-demo-pipeline/src"
 			context.println("additionalClasspath: " + additionalClasspath)
 			setDslClasspath(additionalClasspath)
