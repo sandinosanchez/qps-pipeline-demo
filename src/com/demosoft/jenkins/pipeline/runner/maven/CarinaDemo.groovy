@@ -10,14 +10,14 @@ class CarinaDemo extends TestNG {
 	def overriddenFactories = ['com.qaprosoft.jenkins.jobdsl.factory.pipeline.TestJobFactory' : 'com.demosoft.jenkins.jobdsl.factory.pipeline.DemoTestJobFactory']
 
 	@Override
-	protected void onPush() {
+	public void onPush() {
 		pipelineLibrary = 'QPS-Pipeline-demo'
 		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemo'
 		super.onPush()
 	}
 
 	@Override
-	protected void build() {
+	public void build() {
 		setLogLevel(Configuration.get('debug')?.toBoolean())
 		super.build()
 		clean()
