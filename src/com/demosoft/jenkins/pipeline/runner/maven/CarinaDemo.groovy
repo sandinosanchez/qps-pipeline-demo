@@ -1,4 +1,4 @@
-package com.qaprosoft.jenkins.pipeline.runner.maven
+package com.demosoft.jenkins.pipeline.runner.maven
 
 import groovy.transform.InheritConstructors
 import com.qaprosoft.jenkins.pipeline.runner.maven.TestNG
@@ -6,12 +6,12 @@ import com.qaprosoft.jenkins.pipeline.runner.maven.TestNG
 @InheritConstructors
 class CarinaDemo extends TestNG {
 
-	def overriddenFactories = ['com.qaprosoft.jenkins.jobdsl.factory.pipeline.TestJobFactory' : 'com.qaprosoft.jenkins.jobdsl.factory.pipeline.DemoTestJobFactory']
+	def overriddenFactories = ['com.qaprosoft.jenkins.jobdsl.factory.pipeline.TestJobFactory' : 'com.demosoft.jenkins.jobdsl.factory.pipeline.DemoTestJobFactory']
 
 	@Override
 	public void onPush() {
 		pipelineLibrary = 'QPS-Pipeline-demo'
-		runnerClass = 'com.qaprosoft.jenkins.pipeline.runner.maven.CarinaDemo'
+		runnerClass = 'com.demosoft.jenkins.pipeline.runner.maven.CarinaDemo'
 		prepare()
 		super.onPush()
 	}
